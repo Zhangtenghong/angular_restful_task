@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var path = require('path');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var flash = require('express-flash');
@@ -31,7 +30,7 @@ app.get('/tasks', function(req, res) {
       console.log("Returned error", err);
       return res.json({message:"Error", error:err})
     } else {
-      return res.json({message:"Success", data:tasks})
+      return res.json(tasks)
     }
   })
 })
@@ -42,7 +41,7 @@ app.get('/tasks/:id', function(req, res) {
       console.log("Returned error", err);
       return res.json({message:"Error", error:err})
     } else {
-      return res.json({message:"Success", data:task})
+      return res.json(task)
     }
   })
 })
