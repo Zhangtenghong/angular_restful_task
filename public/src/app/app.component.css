@@ -1,0 +1,25 @@
+.newTask{
+  padding:20px;
+}
+
+.taskList{
+  padding:20px;
+}
+
+.tasks{
+  padding:5px;
+  width:300px;
+  margin:13px;
+  border: 2px solid lightgray
+}
+
+.show{
+  padding:5px;
+  width:600px;
+  margin:13px;
+  border: 2px solid lightgray
+}
+
+.edit{
+  padding:20px;
+}

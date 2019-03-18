@@ -18,8 +18,7 @@ app.use(session({
 mongoose.connect('mongodb://localhost/tasks');
 var TaskSchema = new mongoose.Schema({
   title:  { type: String, required: true},
-  description: { type: String, default: ''},
-  completed: { type: Boolean, default:false},
+  description: { type: String, default: ''}
 }, {timestamps:true});
 mongoose.model('Task', TaskSchema);
 var Task = mongoose.model('Task') 
@@ -41,6 +40,7 @@ app.get('/tasks/:id', function(req, res) {
       console.log("Returned error", err);
       return res.json({message:"Error", error:err})
     } else {
+      console.log("the tsk", task)
       return res.json(task)
     }
   })
@@ -60,6 +60,7 @@ app.post('/tasks', function(req, res) {
 })
 
 app.put('/tasks/:id', function(req, res){
+  console.log("POST DATA", req.body);
   console.log("POST DATA", req.body);
   Task.update({_id:req.params.id}, {title: req.body.title, description: req.body.description, completed: req.body.completed}, function(err){
     if(err){
